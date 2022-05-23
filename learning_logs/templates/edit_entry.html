@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="UTF-8">
+				<title>Edit Entry</title>
+    <style>
+         .ent-but{
+            padding: 10px;
+        }
+        .ent-but a{
+            
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            transition: all 0.5s;
+            border-radius: 5px;
+        }
+        .ent-but a:hover {
+            background: #80bfff;
+            border: none;
+        }
+        p {
+            padding: 5px;
+        }
+        button {
+            padding: 7px;
+            cursor: pointer;
+            transition: ease-out 0.5s;
+            background: #33ccff;
+            color: #fff;
+            border: none;
+            margin: 0 5px 0;
+            border-radius: 5px;
+        }
+        button:hover{
+            background: #0099cc;
+            
+        }
+    </style>
+</head>
+<body>    
+ {% extends 'base.html'%}
+    {% block content %}
+     <p>Edit Your Entry: </p>
+    <form action='{% url 'edit_entry' entries.id %}' method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name='submit'>Save Changes</button>
+    
+    </form>
+    {% endblock %}
+</body>
+</html>

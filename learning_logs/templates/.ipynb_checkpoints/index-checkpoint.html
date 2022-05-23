@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="UTF-8">
+				<title>Learning Logs</title>
+    <style>
+        .header{
+            height: 100vh;
+        }
+        .intro {
+             width: 90%;
+            
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        .intro p {
+            color: #fff;
+            font-size: 20px;
+            
+        }
+        .intro a {
+            border: 1px solid #ff4336;
+            color: #fff;
+           
+            text-decoration: none;
+            padding: 5px;
+            transition-timing-function: ease-in;
+            transition-duration: 0.5s;
+            background: transparent;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 20px; 
+        }
+        .link {
+            padding-top: 10px;
+             
+            transition: all 0.5s;
+            
+        }
+        .intro a:after {
+            content: '\00bb';
+            position: relative;
+            
+            opacity: 0;
+            top: 0;
+            right: -30px;
+            transition: 0.5s;
+        }
+        .intro:hover a {
+            padding-right: 20px;
+            
+        }
+        .intro:hover a:after {
+            opacity: 3;
+            right: 0;
+            
+           
+        }
+        .intro a:hover {
+            background: #ff4336;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        .intro a {
+            background-color: #ff4336;
+            padding: 20px;
+            border-radius: 3px;
+        }
+        .objectives {
+            margin: auto;
+            text-align: center;
+            width: 80%;
+            min-height: 100vh;
+        }
+        .objectives h3 {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 22px;
+            padding-bottom: 10px;
+            color: #ff4346;
+            
+        }
+       .row {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .obj-col {
+            background: #fff3f3;
+            height: 50%;
+            padding: 20px 12px;
+            flex-basis: 31%;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 7px;
+            transition: 0.5s;
+        }
+        
+        .obj-col:hover {
+            box-shadow: 0 7px 12px 0 rgba(0,0,10,0.3), 0 7px 12px 0 rgba(0,0,10,0.3);
+            cursor: pointer;
+         
+        }
+        .obj-col h4 {
+            padding: 5px;
+            margin: 10px 0;
+        }
+        @media(max-width: 700px) {
+            .objectives .row {
+                flex-direction: column;
+            }
+            .obj-col {
+            box-shadow: 0 7px 12px 0 rgba(0,0,10,0.3), 0 7px 12px 0 rgba(0,0,10,0.3);
+
+            }
+           
+        }
+        
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <section class="header">
+               
+       
+        <div class="intro">
+        <p>Welcome to Learning Log, an online web application that helps you keep track of your learning, <br />all you need to do is study, and keep your notes in a log, without having to worry about dating and documentation,<br> We got you covered!
+   <br /> 
+        <div class='link'>
+        <a href='{% url 'topics' %}' style="vertical-align: middle;">Your Topics </a>
+            </div>
+        </p>
+    </div>
+    </section>
+    <section class="objectives">
+        <h3>All You Need To Do</h3>
+        <div class="row">
+            <div class="obj-col">
+                <h4>Study</h4>
+                <p>Read your favorite books, blogs, Comics... Take notes in your normal notebook unorganised and make organised notes at learning logs for the long run. </p>
+            
+            </div>
+            <div class="obj-col">
+                <h4>Document</h4>
+                <p>Bring your notes to learning logs and never worry about loosing them, Create a topic, add entries to the topic, and let us do the rest, dating and organization, you can edit your work at any time.</p>
+            
+            </div>
+            <div class="obj-col">
+                <h4>Retrieve</h4>
+                <p>You can retrieve your documents, notes, anywhere, anytime on the go, no need to fret over leaving your jotter or notepad at home, login to your account and read your notes before your examination or interviews.</p>
+            
+            </div>
+        
+        
+        </div>
+        
+        
+        
+        
+    
+    </section>
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    {% load static %}
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+             font-family: Lato, sans-serif;
+            background-image: linear-gradient(rgba(0, 153, 255, 0.2),rgba(0, 0, 0, 0.005)), url({% static "mount.jpg" %});
+            background-size: cover; 
+            background-repeat: no-repeat;
+            height: 100vh;
+            
+            
+
+        }
+        header {
+           padding: 2% 4%;
+            display: flex;
+            position:relative;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+        }
+        header a {
+            text-decoration: none;
+            color: #000;
+        }
+        header h1 {
+            font-size: 50px;
+        }
+        nav ul li {
+            display: inline-block;
+            list-style-type: none;
+            padding: 8px 10px;
+            position: relative;
+        }
+        nav {
+            
+            flex: 1;
+            text-align: right;
+           
+            
+            padding: 3%
+        }
+        nav ul li a {
+            font-size: 15px;
+        }
+        nav ul li::after {
+            content: "";
+            width: 0%;
+            display: block;
+            height: 2px;
+            background: #ff4336;
+            margin: auto;
+            transition:  0.5s;
+        }
+        nav ul li:hover::after {
+            width:100%
+        }
+        .body {
+            padding: 5px;
+        }
+        header h1 a {
+            padding: 7px;
+            position: relative;
+            width: 300px;
+            text-align: center;
+        }
+        header h1 a:before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 0;
+            height: 0;
+            background: transparent;
+            border: 2px solid transparent;
+            animation: animate 2s linear forwards;
+            animation-iteration-count: 2;
+            animation-delay: 1.5s;
+        }
+  
+        header h1 a:hover::before {
+            
+        }
+  
+        @keyframes animate {
+            0% {
+                width: 0;
+                height: 0;
+                border-top-color: black;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+  
+            50% {
+                width: 100%;
+                height: 0;
+                border-top-color: black;
+                border-right-color: black;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+  
+            100% {
+                width: 100%;
+                height: 100%;
+                border-top-color: black;
+                border-right-color: black;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+        }
+  
+       header h1 a::after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 0;
+            height: 0;
+            background: transparent;
+            border: 2px solid transparent;
+           animation: animates 2s linear forwards;
+           animation-delay: 1.5s;
+           animation-iteration-count: 2;
+        }
+  
+        header h1 a:hover::after {
+            
+        }
+  
+        @keyframes animates {
+            0% {
+                width: 0;
+                height: 0;
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: black;
+            }
+  
+            50% {
+                width: 0;
+                height: 100%;
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: black;
+                border-left-color: black;
+            }
+  
+            100% {
+                width: 100%;
+                height: 100%;
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: black;
+                border-left-color: black;
+            }
+        }
+        .navLinks .fa {
+            display: none;
+        }
+        header .fa {
+            display: none;
+        }
+        
+        @media(max-width: 700px) {
+            
+            .navLinks ul li {
+                display: block;
+                padding: 30px;
+           
+            }
+            .navLinks {
+                position: absolute;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                background: #f44336;
+                text-align: left;
+                width: 200px;
+                z-index: 2;
+                display: none;
+                transition: 1s;
+            }
+           
+            .navLinks ul li a {
+                padding: 5px;
+                margin: 5px;
+            }
+            header h1 {
+                font-size: 35px;
+            }
+            .navLinks .fa, header .fa {
+                display: block;
+                padding: 10px;
+                color: #fff;
+                margin: 10px;
+                font-size: 22px;
+                cursor: pointer;
+            }
+        }
+     
+    </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    
+<section>
+    <header>
+
+        <h1><a href='{% url 'index' %}'>Learning Log</a></h1>
+        <nav class='navLinks' id="navLinks">
+           
+             <i class="fa fa-times" onclick="hideMenu()" ></i>
+            <ul>
+                {% if user.is_authenticated %}
+                <!--{% for message in messages %}
+                 <div class="alert alert-{{ messages.tags }} alert-dissmissable fade show" role="alert" style="color: black">
+            <strong>Success: </strong>{{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times</span></button>
+        </div>
+                {% endfor %}-->
+                <li>Hello, {{ user.username }}</li>
+                <li><a href='{% url 'topics' %}'>TOPICS</a></li>
+                <li><a href='{% url 'logout' %}'> LOGOUT </a></li>
+                {% else %}
+                <li><a href='{% url 'register' %}'> REGISTER </a></li>
+                <li><a href='{% url 'login' %}'>LOGIN</a></li>
+                {% endif %}
+                <li><a href='https://mail.google.com/'>CONTACT US</a></li>
+                 
+            </ul>
+        
+        </nav>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </header>
+</section>
+    
+<section>
+    
+            
+    <div class="body">
+{% block content %}
+
+{% endblock %}
+
+
+
+
+
+    </div>  
+</section>
+   <script> 
+var navLinks = document.getElementById("navLinks");
+       function showMenu() {
+           navLinks.style.right= "0";
+       navLinks.style.display= "block";
+           navLinks.style.transition= 'all 1s';
+           
+       }
+           
+       function hideMenu() {
+           navLinks.style.right= "-300px";
+          navLinks.style.display= "none";
+           navLinks.style.transition= 'all 1s';
+           
+       }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

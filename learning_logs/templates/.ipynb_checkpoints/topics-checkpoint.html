@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<meta charset="UTF-8">
+				<title>Topics</title>
+    <style>
+        .topics {
+            display: flex;
+            flex-direction: center;
+            
+        }
+        
+        
+       .topics div {
+           flex-basis: 10%;
+           text-align: center;
+           line-height: 20px;
+           width: 100px;
+           border-radius: 3px;
+           margin: 10px;
+           border: 1px solid #fff;
+           padding: 15px;
+           transition: all 0.5s;
+        }
+        .topics div:hover{
+            background: #80bfff;
+            border: none;
+        }
+        .links {
+            list-style-type: none;
+            
+        }
+        .link {
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+        }
+      
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        
+        header h1 {
+            color: #fff;
+            
+            flex: 1;
+            text-align: center;
+            
+        }
+        .nav-bar ul li a {
+            padding: 8px 16px;
+            color: #000;
+            display: block;
+            text-decoration: none;
+        }
+        .nav-bar ul{
+            list-style-type: none;
+            width: 200px;
+            background: #f1f1f1;
+        }
+        li .active{
+            background: #33ccff;
+        }
+        .nav-bar ul li a:hover:not(.active){
+            background: #555;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    
+    <div class="nav-bar">
+        <ul>
+            <li><a href="{% url 'index' %}" class="active">Go Back</a></li>
+       <li><a href='{% url 'new_topic' %}'>Create A New Topic</a></li>
+        </ul>
+    </div>
+        <header>
+    <h3>Topics: </h3>
+    </header>
+    <ul>
+        <div class="topics">
+     {% for topic in topics %}
+    <div>
+        <a href='{% url 'entries' topic.id %}' class="link"><li class="links">{{ topic }} </li></a>
+   
+    </div>
+    
+    
+     {% endfor %}
+        
+     </div>
+       </ul>  
+    
+    {% endblock %}
+</body>
+</html>

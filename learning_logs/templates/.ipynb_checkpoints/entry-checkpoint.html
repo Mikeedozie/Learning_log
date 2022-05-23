@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Entries</title>
+    <style>
+        body{
+            color: #000;
+            
+        }
+        .ent-but p {
+            padding: 15px;
+            display: block;
+        }
+        
+        .ent-but a{
+            
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            transition: all 0.5s;
+            border-radius: 5px;
+        }
+        .ent-but a:hover {
+            background: #80bfff;
+            border: none;
+        }
+      
+        .ent-bod p{
+            padding: 7px;
+        }
+        .ent-bod p a{
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #fff;
+            padding: 5px;
+            border-radius: 5px;
+            transition: all 0.5s;
+            color: #000;
+        }
+        .ent-bod p a:hover {
+            background: #80bfff;
+            color: #fff;
+            border: none;
+        }
+        .ent-bod p {
+            color: #000;
+        }
+        .ent-bod {
+            background: #d9d9d9;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .ent-bod li{
+            border-bottom: 2px solid #000;
+            padding: 15px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+       <p>Entries: {{ topics.text }}</p>
+    <div class="ent-but">
+        <p><a href="{% url 'topics' %}">Go Back</a></p>
+    <p><a href="{% url 'new_entry' topics.id %}">Make new Entries.</a></p>
+     </div>
+        <ul>
+           <div class="ent-bod">
+    {% for entry in entries %}
+        <li>{{ entry.date_added|date:'M d, Y H:i' }}</li>
+         <p class="text">{{ entry.text|linebreaks }}</p> 
+           
+        <p>
+            <a href='{% url 'edit_entry' entry.id %}'>Edit Entry</a>
+        </p>
+           
+        {% empty %}
+        <li>No Entires Yet</li>
+    
+    
+    {% endfor %}
+            </div>
+    </ul>
+    
+    {% endblock %}
+</body>
+</html>
