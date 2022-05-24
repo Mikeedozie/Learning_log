@@ -12,3 +12,4 @@ soupsieve==2.3.2.post1
 sqlparse==0.4.2
 static==1.1.1
 static3==0.7.0
+whitenoise
