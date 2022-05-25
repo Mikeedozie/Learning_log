@@ -19,12 +19,14 @@ def login_view(request):
         myuser = authenticate(username=usern, password=pass1)
         if myuser is not None:
             login(request, myuser)
-            return redirect('index')
+            name = myuser.first_name
+            context = {'name': name}
+            return render(request, 'index.html', context)
         else:
-            
+            messages.error(request, "Bad Login Credentials")
             return redirect('login')
-    return render(request, 'login.html')
     
+    return render(request, 'login.html')
 
 def logout_view(request):
     logout(request)
@@ -37,6 +39,7 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
+            messages.success(request, "Logged in Successfully!")
             registered_user = authenticate(username=new_user.username, password=request.POST['password1'])
             login(request, registered_user)
             return redirect('index')

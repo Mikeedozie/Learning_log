@@ -22,6 +22,11 @@
         }
         input {
             padding: 10px;
+            background: #fff;
+            border: none;
+        }
+        input:focus {
+            box-shadow: 0 7px 12px 0 rgba(0,157,255, 0.3), 0 7px 12px 0 rgba(0,157,255, 0.3);
         }
         p {
             padding: 5px;
@@ -52,7 +57,7 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button name='submit'>Add Topic</button>
-    <input type='hidden' name='next' value='{% url 'topics' %}' />
+   
     </form>
     {% endblock %}
 </body>

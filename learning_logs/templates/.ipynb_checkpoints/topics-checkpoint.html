@@ -78,7 +78,7 @@
     <div class="nav-bar">
         <ul>
             <li><a href="{% url 'index' %}" class="active">Go Back</a></li>
-       <li><a href='{% url 'new_topic' %}'>Create A New Topic</a></li>
+            <li><a href='{% url 'new_topic' %}'>Create A New Topic</a></li>
         </ul>
     </div>
         <header>
@@ -87,14 +87,10 @@
     <ul>
         <div class="topics">
      {% for topic in topics %}
-    <div>
-        <a href='{% url 'entries' topic.id %}' class="link"><li class="links">{{ topic }} </li></a>
-   
-    </div>
-    
-    
-     {% endfor %}
-        
+            <div>
+                <a href='{% url 'entries' topic.id %}' class="link"><li class="links"> {{ topic }} </li></a>
+            </div>
+    {% endfor %}
      </div>
        </ul>  
     

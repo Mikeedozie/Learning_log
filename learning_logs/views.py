@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 from django.urls import reverse
@@ -21,11 +21,13 @@ def topics(request):
 @login_required
 def entries(request, topic_id):
     topics = Topic.objects.get(id=topic_id)
-    entries = topics.entry_set.order_by('-date_added')
     if topics.owner != request.user:
-        raise Http404
+        return Http404
+    entries = topics.entry_set.order_by('-date_added')
     context = {'topics': topics, 'entries': entries}
     return render(request, 'entry.html', context)
+
+
 
 @login_required
 def new_topic(request):
@@ -73,3 +75,13 @@ def edit_entry(request, entry_id):
             return HttpResponseRedirect(reverse('entries', args=[topic.id]))
     context = {'entries': entries, 'form': form, 'topic': topic, 'user_topics': user_topics}
     return render(request, 'edit_entry.html', context)
+
+@login_required
+def delete_entry(request, entry_id, topic_id):
+    entry_name = Entry.objects.get(id=entry_id)
+    topic = entry_name.topic
+    if request.user != topic.owner:
+        return Http404
+    entry = Entry.objects.get(id=entry_id).delete()
+    
+    return HttpResponseRedirect(reverse('entries', args=[topic_id]))

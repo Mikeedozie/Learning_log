@@ -62,10 +62,10 @@
 <body>
     {% extends 'base.html' %}
     {% block content %}
-       <p>Entries: {{ topics.text }}</p>
+       <p>Topic: {{ topics.text }}</p>
     <div class="ent-but">
-        <p><a href="{% url 'topics' %}">Go Back</a></p>
-    <p><a href="{% url 'new_entry' topics.id %}">Make new Entries.</a></p>
+        <p><a href='{% url 'topics' %}'>Go Back</a></p>
+        <p><a href='{% url 'new_entry' topics.id %}'>Make new Entries</a></p>
      </div>
         <ul>
            <div class="ent-bod">
@@ -75,6 +75,7 @@
            
         <p>
             <a href='{% url 'edit_entry' entry.id %}'>Edit Entry</a>
+            <a href='{% url 'delete_entry' entry.id topics.id %}'>Delete Entry</a>
         </p>
            
         {% empty %}
