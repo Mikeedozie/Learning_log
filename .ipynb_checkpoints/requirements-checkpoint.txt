@@ -26,3 +26,4 @@ sqlparse==0.4.2
 static==1.1.1
 static3==0.7.0
 whitenoise==6.1.0
+psycopg2
