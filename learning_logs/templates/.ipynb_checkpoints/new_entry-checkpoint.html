@@ -60,7 +60,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button name='submit'>Add Entry</button>
-    <input tyoe='hidden' name='next' value = '{% url 'entries' topics.id %}' />
+    <input type='hidden' name='next' value = '{% url 'entries' topics.id %}' />
     </form>
     {% endblock %}
 </body>
