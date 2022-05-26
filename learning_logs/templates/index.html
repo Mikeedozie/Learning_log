@@ -100,7 +100,12 @@
             border-radius: 5px;
             box-sizing: border-box;
             margin-top: 7px;
+            width: 100px;
             transition: 0.5s;
+        }
+        .obj-col p{
+            font-size: 26px;
+            
         }
         
         .obj-col:hover {
@@ -111,6 +116,7 @@
         .obj-col h4 {
             padding: 5px;
             margin: 10px 0;
+            font-size: 26px;
         }
         @media(max-width: 700px) {
             .objectives .row {
@@ -127,6 +133,7 @@
         .instructions {
             margin: auto;
             width: 90%;
+            height: 100vh;
             text-align: center;
             padding-top: 50px;
             
@@ -150,12 +157,37 @@
             overflow: hidden;
             transition: 0.5s;
         }
+        
+        
+        .instruct-col {
+            
+            animation: anim-glow 2s ease infinite;
+        }
      
+        
+        @keyframes anim-glow {
+            0% {
+                box-shadow: 0 0 rgba(#0066ff, 2)
+            }
+            100% {
+                box-shadow: 0 0 10px 8px transparent;
+                border-width: 2px;
+            }
+        }
+        
+        
+        
+        
         
         .instruct-col img {
             width: 100%;
+
         }
-        
+        .instruct-col {
+            box-shadow: 12px 7px 12px 7px rgba(0,128,255,0.2), 12px 7px 12px 7px rgba(0,128,255,0.2);
+            
+        }
+      
         .layer {
             
             background: transparent;
