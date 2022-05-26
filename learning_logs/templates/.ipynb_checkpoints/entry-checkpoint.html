@@ -57,27 +57,35 @@
             padding: 15px;
             font-size: 30px;
         }
+        li.body-spaced {
+            padding: 30px;
+        }
+        span.diff {
+            padding: 10px;
+            background: white;
+        }
     </style>
 </head>
 <body>
     {% extends 'base.html' %}
     {% block content %}
-       <p>Entries: {{ topics.text }}</p>
+       <p>Topic: {{ topics.text }}</p>
     <div class="ent-but">
         <p><a href='{% url 'topics' %}'>Go Back</a></p>
-        <p><a href='{% url 'new_entry' topics.id %}'>Make new Entries.</a></p>
+        <p><a href='{% url 'new_entry' topics.id %}'>Make new Entries</a></p>
      </div>
         <ul>
            <div class="ent-bod">
     {% for entry in entries %}
-        <li>{{ entry.date_added|date:'M d, Y H:i' }}</li>
+               <span class="diff">
+        <li class="body-spaced">{{ entry.date_added|date:'M d, Y H:i' }}</li>
          <p class="text">{{ entry.text|linebreaks }}</p> 
            
         <p>
             <a href='{% url 'edit_entry' entry.id %}'>Edit Entry</a>
             <a href='{% url 'delete_entry' entry.id topics.id %}'>Delete Entry</a>
         </p>
-           
+               </span>
         {% empty %}
         <li>No Entires Yet</li>
     
