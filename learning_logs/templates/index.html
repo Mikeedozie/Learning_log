@@ -3,7 +3,8 @@
 <head>
 				<meta charset="UTF-8">
 				<title>Learning Logs</title>
-    
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         .header{
             height: 100vh;
@@ -125,7 +126,11 @@
             }
             .obj-col {
             box-shadow: 0 7px 12px 0 rgba(0,0,10,0.3), 0 7px 12px 0 rgba(0,0,10,0.3);
+                width: 100%;
 
+            }
+            .instructions .row {
+                flex-direction: column;
             }
            
         }
@@ -134,7 +139,7 @@
         .instructions {
             margin: auto;
             width: 90%;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
             padding-top: 50px;
             
@@ -156,6 +161,7 @@
             box-sizing: border-box;
             margin-bottom: 30px;
             overflow: hidden;
+           padding-bottom: 2.5rem;
             transition: 0.5s;
         }
         
@@ -166,7 +172,7 @@
         }
      
         
-        @keyframes anim-glow {
+        @keyframes ani-glow {
             0% {
                 box-shadow: 0 0 rgba(#0066ff, 2)
             }
@@ -185,8 +191,7 @@
 
         }
         .instruct-col {
-            box-shadow: 12px 7px 12px 7px rgba(0,128,255,0.2), 12px 7px 12px 7px rgba(0,128,255,0.2);
-            
+ box-shadow: 0 30px 45px -15px rgba(255,16,39,0.57);            
         }
       
         .layer {
@@ -262,8 +267,8 @@ i.fa
 }
 #ig
 {
-    color: #ff5f40;
-    text-shadow: 0 0 30px #ff5f40;
+    color: green;
+    text-shadow: 0 0 30px #33ff77;
 }
 #tw
 {
@@ -303,6 +308,9 @@ i.fa
         }
         footer {
             background:  #e6e6ff;
+            position: relative;
+            bottom: 0;
+           
             
         }
         
@@ -379,10 +387,10 @@ i.fa
        <h3>Contact Us</h3>
     <div class="container">
         <div class="btn fb-btn">
-            <i class="fa fa-facebook" aria-hidden="true" id="fb"></i>
+           <a href="https://www.facebook.com/edozie.odigwe.3" target="blank"><i class="fa fa-facebook" aria-hidden="true" id="fb"></i></a>
         </div>
         <div class="btn ig-btn">
-            <i class="fa fa-instagram" aria-hidden="true" id="ig"></i>
+             <a href="https://wa.me/+2348160902127" target="blank"><i class="fa fa-whatsapp" aria-hidden="true" id="ig"></i></a>
         </div>
         <div class="btn tw-btn">
             <i class="fa fa-twitter" aria-hidden="true" id="tw"></i>

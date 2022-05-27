@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from learning_logs import views
 
 
 urlpatterns = [
@@ -22,3 +23,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', include('learning_logs.urls'))
 ]
+
+handler404 = "learning_logs.views.page_not_found_view"

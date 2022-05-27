@@ -85,3 +85,7 @@ def delete_entry(request, entry_id, topic_id):
     entry = Entry.objects.get(id=entry_id).delete()
     
     return HttpResponseRedirect(reverse('entries', args=[topic_id]))
+
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)

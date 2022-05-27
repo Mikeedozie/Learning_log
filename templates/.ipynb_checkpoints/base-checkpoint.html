@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <title>Page title</title>
+    {% load static %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     {% load static %}
     <style>
@@ -12,7 +14,7 @@
             box-sizing: border-box;
         }
         html {
-             font-family: Lato, sans-serif;
+             font-family: 'EB Garamond', serif;
             background-image: linear-gradient(rgba(0, 153, 255, 0.2),rgba(0, 0, 0, 0.005)), url({% static "mount.jpg" %});
             background-size: cover; 
             background-repeat: no-repeat;
@@ -24,10 +26,10 @@
         header {
            padding: 2% 4%;
             display: flex;
-            position:relative;
             justify-content: space-between;
             align-items: center;
             margin: auto;
+            
         }
         header a {
             text-decoration: none;
@@ -35,7 +37,11 @@
         }
         header h1 {
             font-size: 60px;
+            
+           
+            
         }
+       
         nav ul li {
             display: inline-block;
             list-style-type: none;
@@ -215,6 +221,9 @@
         }
         
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
     
