@@ -25,3 +25,5 @@ urlpatterns = [
 ]
 
 handler404 = "learning_logs.views.page_not_found_view"
+handler500 = "learning_logs.views.view_500"
+handler403 = "learning_logs.views.csrf_view"

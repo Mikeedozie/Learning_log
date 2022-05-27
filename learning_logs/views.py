@@ -4,6 +4,8 @@ from .forms import TopicForm, EntryForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
+
+from django.template import RequestContext
 # Create your views here.
 
 
@@ -88,4 +90,13 @@ def delete_entry(request, entry_id, topic_id):
 
 
 def page_not_found_view(request, exception):
-    return render(request, '404.html', status=404)
+    return render(request, '404.html')
+    
+
+
+def view_500(request, exception=None):
+    return render(request, '500.html')
+
+
+def csrf_view(request, exception=None):
+    return render(request, '403_csrf.html')
