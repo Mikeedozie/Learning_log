@@ -44,7 +44,7 @@ def register(request):
             login(request, registered_user)
             return redirect('index')
         else:
-            messages.error(request, "Bad Credentials")
+            messages.error(request, "Bad Registration Credentials")
             return redirect('register')
             
     context={'form':form}
